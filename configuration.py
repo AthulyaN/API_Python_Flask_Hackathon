@@ -20,7 +20,7 @@ E.g -
 USER_NAME = 'admin'
 """
 
-USER_NAME = ''
+USER_NAME = 'APIPROCESSING'
 
 """
 PASSWORD - Needed for HTTP Basic auth. Insert the API password inside the empty string
@@ -28,7 +28,7 @@ E.g -
 PASSWORD = 'password'
 """
 
-PASSWORD = ''
+PASSWORD = '2xx@Success'
 
 
 
