@@ -24,10 +24,10 @@ versions of the same library/package and be isolated from each other.
 3. Now, in the URL dropdown enter Git URL of source code, specify destination directory and click on Clone.
 4. This will load the project and open it up in PyCharm. The next step is to add the virtual environment and the interpreter. Click on the <No Interpreter> button on the bottom    right of the IDE.
 5. Click on Add Interpreter.
-6. In the window that comes up, leave the default options and click on OK.
-7. Now you will be able to see the venv folder created in your project pane.
+6. In the window that comes up, select 'New Environment' radio button. Ensure 'Location' of 'venv' is current project folder.
+7. Clock OK. You will be able to see the venv folder created in your project pane.
 8. You will also see a banner on top that tells you that there are packages in the requirements.txt that are missing. You can click on “install requirements“ to install these. 
-This does the same as <pip install -r requirements.txt>. Alternatively, you can select the PyCharm terminal and type <pip install -r requirements.txt>
+This does the same as <pip install -r requirements.txt>. Alternatively, you can select the PyCharm terminal, enusre you are in project root and type <pip install -r requirements.txt>
 9. Once everything is installed, you can verify by checking venv\lib . You should see flask and all related packages here.
 10. Modify configuration.py (in project root folder) to set local DB path and API credentials and Save. Steps are given at the top of configuration.py 
 11. Now, in Pycharm terminal run the app using the following commands	
