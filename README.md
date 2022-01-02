@@ -1,5 +1,6 @@
-# LMS_Hackathon
-Code base for the implementation of Users, Skills, UserSkills and UserSkillsMapping APis for LMS.
+# API_Python_Flask_Hackathon
+
+Code base for the implementation of Users, Skills, UserSkills and UserSkillsMapping APIs for LMS.
 
 Pre-requisites - 
 
@@ -15,13 +16,34 @@ the required packages within the project's environment only. In this way differe
 versions of the same library/package and be isolated from each other.
 ***********************************************************************************************************************
 
+#STEPS TO INSTALL AND RUN IN PYCHARM
+-----------------------------------------
+1. Close all projects, and select GetFromVCS from the initial screen
+2. In the next screen, if you do not see Git as an option in the Version Control drop-down, select the install Git option to install Git.
+   Once this is done, select the GitHub option on the left pane and follow the steps to login to Git on the browser window and give access to PyCharm to access Github.
+3. Now, in the URL dropdown enter Git URL of source code, specify destination directory and click on Clone.
+4. This will load the project and open it up in PyCharm. The next step is to add the virtual environment and the interpreter. Click on the <No Interpreter> button on the bottom    right of the IDE.
+5. Click on Add Interpreter.
+6. In the window that comes up, leave the default options and click on OK.
+7. Now you will be able to see the venv folder created in your project pane.
+8. You will also see a banner on top that tells you that there are packages in the requirements.txt that are missing. You can click on “install requirements“ to install these. 
+This does the same as <pip install -r requirements.txt>. Alternatively, you can select the PyCharm terminal and type <pip install -r requirements.txt>
+9. Once everything is installed, you can verify by checking venv\lib . You should see flask and all related packages here.
+10. Modify configuration.py (in project root folder) to set local DB path and API credentials and Save. Steps are given at the top of configuration.py 
+11. Now, in Pycharm terminal run the app using the following commands	
+    Set FLASK_APP = app
+    flask run     
+            
+    This will start the application 
+            
+
 #STEPS TO INSTALL AND RUN WITHOUT PYCHARM
 -----------------------------------------
 Please follow below remaining steps to set up local configurations, set up virtual environment, install packages and start Flask app.
 
 STEPS
 ------
-Note: Project Root is the folder that contains app.py. Please ensure you see this file using 'dir' command before proceeding
+Note: Project Root is the folder that contains app.py. 
 
 1. Download and extract code
 
@@ -58,23 +80,10 @@ NOTE - After initial installation, execute below commands everytime you open Win
 
 To stop Flask API server, simply enter CTR+C or close the command prompt
 
-#STEPS TO INSTALL AND RUN IN PYCHARM
------------------------------------------
-1. Close all projects, and select GetFromVCS from the initial screen
-2. In the next screen, if you do not see Git as an option in the Version Control drop-down, select the install Git option to install Git.
-   Once this is done, select the GitHub option on the left pane and follow the steps to login to Git on the browser window and give access to PyCharm to access Github.
-3. Now, you should be seeing the repositories that you have been given access to, and you should see LMS_Hackathon project on the right pane. Select it and click on Clone.
-4. This will load the project and open it up in PyCharm. The next step is to add the virtual environment and the interpreter. Click on the <No Interpreter> button on the bottom    right of the IDE.
-5. Click on Add Interpreter.
-6. In the window that comes up, leave the default options and click on OK.
-7. Now you will be able to see the venv folder created in your project pane.
-8. You will also see a banner on top that tells you that there are packages in the requirements.txt that are missing. You can click on “install requirements“ to install these. 
-This does the same as <pip install -r requirements.txt>. Alternatively, you can select the PyCharm terminal and type <pip install -r requirements.txt>
-9. Once everything is installed, you can verify by checking the site-packages under venv . You should see flask and all related packages here.
-10. Now, open up Terminal from PyCharm and run the app using the following commands	
-    Set FLASK_APP = app
-    flask run
-            
-            
-    This will start the application 
 
+RUNNING PYTEST
+--------------
+Before running pytest on any test_<filename>.py file-
+--please ensure you have an empty DB called 'TEST' created in your system using pgAdmin tool. 
+--Modify tests\constants_tdd.py to configure DATABASE_URL_TEST. Assign it a string like 'postgresql://postgres:password@localhost/TEST' ensuring to give the correct postgres username and password 
+In Pycharm terminal, change to tests\ folder and run 'pytest -v test_<filename>.py'
