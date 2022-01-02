@@ -1,8 +1,17 @@
 # API_Python_Flask_Hackathon
 
-Code base for the implementation of Users, Skills, UserSkills and UserSkillsMapping APIs for LMS.
+Code base for the implementation of Users, Skills, UserSkills and UserSkillsMapping APIs for LMS. 
 
-Pre-requisites - 
+Swagger launches on http://127.0.0.1:5000/
+
+Endpoints - 
+url/Users, url/Users/<id>
+url/Skills, url/Skills/<id>
+url/UserSkills, url/UserSkills/<id>
+url/UserSkillsMap, url/UserSkillsMap?user_id=<id>, url/UserSkillsMap?skill_id=<id>
+
+Pre-requisites
+-------------- 
 
 Python 3.10.x (3.9 should be ok) is installed
 
