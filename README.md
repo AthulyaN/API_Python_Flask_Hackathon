@@ -95,6 +95,8 @@ RUNNING PYTEST
 Before running pytest on any test_<filename>.py file-
 --please ensure you have an empty DB called 'TEST' created in your system using pgAdmin tool. 
    
---Modify tests\constants_tdd.py to configure DATABASE_URL_TEST. Assign it a string like 'postgresql://postgres:password@localhost/TEST' ensuring to give the correct postgres username and password 
+--Modify tests\constants_tdd.py to configure DATABASE_URL_TEST to point to this empty DB TEST.
+    Assign it a string like 'postgresql://postgres:password@localhost/TEST' ensuring to give the correct 
+    postgres username and password 
    
---In Pycharm terminal, change to tests\ folder and run 'pytest -v test_<filename>.py'
+--In Pycharm terminal, go inside tests\ folder and run 'pytest -v test_<filename>.py'
