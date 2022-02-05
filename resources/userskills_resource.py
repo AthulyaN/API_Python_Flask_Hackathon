@@ -124,10 +124,17 @@ class UserSkillsResource(Resource):
             try:
                 max_id = db.session.query(func.max(cast(func.replace(SkillMap.user_skill_id, "US", ""),
                                                         sqlalchemy.Integer))).scalar()
-                max_id+= 1
+                if max_id is not None:
+                    max_id+= 1
+                else:
+                    max_id = 1
             except SQLAlchemyError:
                 return {'message': "Failed to create-Internal server error"}, 500
-            new_user_skill_id = 'US' + str(max_id)
+            str_max_id = str(max_id)
+            if len(str_max_id) > 1:
+                new_user_skill_id = 'US' + str_max_id
+            else:
+                new_user_skill_id = 'US0' + str_max_id
 
             # Checking if incoming user and skill ids exist
             usersearch = user_search_only(user_id)

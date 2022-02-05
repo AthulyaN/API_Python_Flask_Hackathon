@@ -57,10 +57,18 @@ class UsersResource(Resource):
             # Retrieving max ID in DB
             try:
                 max_id = db.session.query(func.max(cast(func.replace(User.user_id, "U", ""), sqlalchemy.Integer))).scalar()
-                max_id+= 1
+                if max_id is not None:
+                    max_id+= 1
+                else:
+                    max_id = 1
             except SQLAlchemyError:
                 return {'message': f"{FAILED_TO_CREATE}-Internal server error"}, 500
-            new_user_id = 'U' + str(max_id)
+            str_max_id = str(max_id)
+            if len(str_max_id) > 1:
+                new_user_id = 'U' + str_max_id
+            else:
+                new_user_id = 'U0' + str_max_id
+            # Adding new user into Users table
             try:
                 user = User(user_id=new_user_id, user_first_name=first_name,
                             user_last_name=last_name, user_phone_number=int(request.json['phone_number']),
